@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "name": "Trello Scroller",
+  "description": "On a long Trello board, scroll to the list or position you want to see right away",
+  "version": "1.0",
+  "icons": {
+    "48": "trello-scroller.svg",
+    "96": "trello-scroller.svg"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "trello-scroller@lionelw"
+    }
+  },
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://trello.com/b/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "page_action": {
+    "default_popup": "popup.html",
+    "browser_style": true,
+    "default_icon": {
+      "48": "trello-scroller.svg",
+      "96": "trello-scroller.svg"
+    },
+    "show_matches": ["*://trello.com/b/*"]
+  },
+  "commands": {
+    "_execute_page_action": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+S"
+      }
+    }
+  }
+}
